@@ -26,7 +26,6 @@ export default function Index() {
           page: 1,
         },
       });
-      // console.log("response.data--------------------======", response.data);
       setCryptos(response.data);
     };
     fetchTopCryptos();
