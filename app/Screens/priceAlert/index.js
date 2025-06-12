@@ -1,5 +1,5 @@
 import { useLocalSearchParams } from "expo-router";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Image, View } from "react-native";
 import Container from "../../components/Container";
 import RnButton from "../../components/RnButton";
@@ -13,19 +13,11 @@ export default function PriceAlert() {
   const styles = useThemeAwareObject(createStyles);
   const item = useLocalSearchParams();
   console.log("jsonData", item.id);
-  // const item = JSON.stringify(jsonData);
-  useEffect(() => {
-    if (item?.id) {
-      console.log("item?.id", item.id);
-    }
-  }, []);
 
-  // console.log("itemtesting", item);
   const [threshold, setThreshold] = useState("");
 
   const handleAlert = async () => {
     const price = parseFloat(threshold);
-    console.log("price", price);
     if (item.current_price < price) {
       console.log("price", price);
       await sendNotif(`${item.name} Alert!`, `Price has crossed $${price}`);

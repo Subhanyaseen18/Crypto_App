@@ -12,7 +12,6 @@ Notifications.setNotificationHandler({
 
 export async function PermissionNoti() {
   if (Device.isDevice) {
-    // console.log("------------------");
     const { status: existingStatus } =
       await Notifications.getPermissionsAsync();
     let finalStatus = existingStatus;
@@ -32,7 +31,6 @@ export async function PermissionNoti() {
 }
 
 export const sendNotif = async (title, body) => {
-  // console.log("first==================");
   console.log("titel,body", title, body);
   await Notifications.scheduleNotificationAsync({
     content: {
